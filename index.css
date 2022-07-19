@@ -1,0 +1,509 @@
+.home-page {
+  align-items: center;
+  margin: 0% 5% 0% 25%;
+  width: 70%;
+  padding: 0px 0px 0px 0px;
+}
+
+#indbgimg1 {
+  position: absolute;
+  background: cover;
+  left: 60%;
+  margin: 0px auto;
+  height: 35vw;
+  z-index: -1;
+}
+
+#mynem {
+  font-size: 40px;
+  color: #04AA6D;
+  font-style: bold;
+}
+
+@media screen and (max-width: 700px) {
+
+  #indbgimg1 {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 420px) {
+
+  .home-page {
+    width: 90%;
+    margin: 0% 3% 0% 10%;
+    padding: 50 px 0px 0px 0px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  .home-page {
+    width: 80%;
+    margin: 0% 10%;
+    padding: 50px 8px 8px 8px;
+  }
+}
+
+.flair {
+  color: #ff66c4;
+  background: -webkit-linear-gradient(-30deg, #e1af66, #c122ac);
+  background-clip: none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent
+}
+
+
+.nav-pages a {
+  color: #af474b;
+  font-style: none;
+  text-decoration: none;
+}
+
+.inner {
+  font-size: large;
+}
+
+
+#greet {
+
+  font-size: 40px;
+}
+
+#greet2 {
+  color: darkslategray;
+  font-size: 2rem;
+}
+
+
+
+
+.social-links {
+  position: fixed;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  margin: 0 auto;
+}
+
+.socialsima {
+  background: -webkit-linear-gradient(rgb(240, 255, 243), rgb(70, 71, 71));
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  padding-left: 30px;
+
+  font-size: 35px;
+  margin: auto;
+}
+
+.social-links a {
+  text-align: center;
+  font-size: 35px;
+  color: #b4686b;
+}
+
+.social-links a:hover {
+  color: #259e72;
+}
+
+
+.sidenav {
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #e3c9ca;
+  overflow-x: hidden;
+  padding-top: 20px;
+
+}
+
+.sidenav a {
+  padding: 26px 88px 26px 25%;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+}
+
+.sidenav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.sidenav a:hover {
+  color: #af474b;
+  background: none;
+  text-decoration: none;
+}
+
+#forsu a:hover {
+  background-color: none;
+}
+
+.sidenav #forsu {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .sidenav {
+    padding: 15px;
+    background: none;
+  }
+
+  .sidenav a:not(:first-child) {
+    display: none;
+  }
+
+  .sidenav a.icon {
+
+    padding: 15px 30px 30px 30px;
+    display: block;
+    float: left;
+  }
+
+  .sidenav.responsive {
+    padding-top: 30px;
+    width: 30%;
+    background-color: #e3c9ca;
+
+  }
+
+  .sidenav.responsive a.icon {
+    padding: 3px 30px 30px 33px;
+    display: block;
+    float: left;
+  }
+
+  .sidenav.responsive a {
+    float: none;
+    display: grid;
+    text-align: left;
+    font-size: larger;
+  }
+
+  .sidenav #forsu {
+    display: unset;
+    color:#895ca0;
+  }
+}
+
+
+
+/* about */
+
+
+.wave {
+  animation-name: wave-animation;
+  /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.5s;
+  /* Change to speed up or slow down */
+  animation-iteration-count: infinite;
+  /* Never stop waving :) */
+  transform-origin: 70% 70%;
+  /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0.0deg)
+  }
+
+  10% {
+    transform: rotate(14.0deg)
+  }
+
+  /* The following five values can be played with to make the waving more or less extreme */
+  20% {
+    transform: rotate(-8.0deg)
+  }
+
+  30% {
+    transform: rotate(14.0deg)
+  }
+
+  40% {
+    transform: rotate(-4.0deg)
+  }
+
+  50% {
+    transform: rotate(10.0deg)
+  }
+
+  60% {
+    transform: rotate(0.0deg)
+  }
+
+  /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0.7deg)
+  }
+}
+
+
+
+
+/* about me */
+
+
+.about-page {
+  align-items: center;
+  margin: 0% 0% 0% 25%;
+  padding: 0px 0px 0px 0px;
+}
+
+.about-me .row {
+  width: 70vw;
+  display: grid;
+  grid-template-columns: 350px auto;
+}
+
+
+.about-me .row::before {
+  display: none;
+}
+
+
+@media (max-width: 750px) {
+  .about-me .row {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .about-me .my-img {
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 420px) {
+
+  .about-page {
+    width: 90%;
+    margin: 0% 3% 0% 10%;
+    padding: 50 px 0px 0px 0px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  .about-page {
+    width: 80%;
+    margin: 0% 3% 0% 10%;
+    padding: 50px 0px 8px 8px;
+  }
+}
+
+/* end about me */
+
+/* skills section boii*/
+
+
+.skills .row {
+
+  width: 70vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.aboutima .skills #skills-row::before {
+  display: none;
+}
+
+
+@media (max-width: 500px) {
+  .skills #skills-row {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+
+.progress {
+  height: 20px;
+  border-radius: 20px;
+  width: 80%;
+}
+
+.progress-bar {
+  text-align: left;
+  border-radius: 30px 0px;
+  transition-duration: 3s;
+
+
+
+}
+
+.skills .progress {
+  height: 50px;
+  display: block;
+  background: none;
+
+
+}
+
+.skills .progress .skill {
+  padding: 10px 0;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: black;
+
+}
+
+.skills .progress .skill .val {
+  float: right;
+  font-style: normal;
+
+}
+
+.skills .progress-bar-wrap {
+  background: none;
+
+}
+
+.skills .progress-bar {
+  width: 1px;
+  height: 5px;
+  transition: 0.9s;
+  background-color: #04AA6D;
+
+
+}
+
+
+/* interest section begin  */
+.interests #intersts-row {
+  width: 70vw;
+  display: grid;
+}
+
+.interests #intersts-row::before {
+  display: none;
+}
+
+.interests .column {
+  padding: 20px;
+  margin: 1px;
+  background: #eadbdc;
+
+}
+
+
+.interests .column h3 {
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  color: black;
+}
+
+.interests .column:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+  
+a:hover {
+  color: #895ca0;
+  text-decoration: none;
+}
+
+
+/* responsiv interests */
+
+@media (min-width: 600px) {
+  .interests #intersts-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (min-width: 900px) {
+  .interests #intersts-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+
+}
+
+
+@media (min-width: 1200px) {
+  .interests #intersts-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+
+
+
+.aboutima {
+
+  background: -webkit-linear-gradient(white, #04AA6D, green);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  font-size: 50px;
+  -webkit-text-fill-color: transparent;
+
+}
+
+
+
+
+/* resume */
+
+.resume-title {
+  color:forestgreen;
+  font-size: 25px;
+}
+
+
+.resume-page .row {
+
+  display: grid;
+  width: 70vw;
+  grid-template-columns: repeat(2, 1fr);
+
+}
+
+.square {
+  font-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* contact section */
+
+/* buttons */
+
+.dcontact
+{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
