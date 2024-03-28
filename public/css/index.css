@@ -475,6 +475,8 @@ body.dark {
 
 .contact-section {
   height: 70vh;
+  
+  border-radius: 20px;
 }
 
 .contact-section .container {
@@ -483,6 +485,9 @@ body.dark {
 
 }
 
+.contact-section h2{
+  margin-left:50px;
+}
 .main-footer p {
   font-size: larger;
   font-family: 'Chivo Mono', monospace;
