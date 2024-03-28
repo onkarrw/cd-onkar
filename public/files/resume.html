@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume</title>
+  
+  
+  <!-- <link rel="stylesheet" href="css/index.css"> -->
+  <style>
+    body {  
+        position: relative;
+        background-image: url("vuehome.svg");
+        background-repeat: no-repeat;
+        background-size:cover;
+        color: white;
+        background-color: #2d0455;
+        background-blend-mode:saturation;
+      }
+      
+    
+    @media (max-width: 767px) {
+      .resume-section {
+        padding-top: 40vh;
+        
+      }
+    }
+    
+    .bg-button {
+      background: linear-gradient(#a9047d, #0b9fc4);
+      animation: my-animation 3s infinite;
+      animation-delay: 5s; 
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      border:solid white 2px;
+    }
+    
+    @keyframes my-animation {
+      0% {
+        transform: rotate(0deg);
+      }
+      10% {
+        transform: rotate(4deg);
+      }
+      20% {
+        transform: rotate(-4deg);
+      }
+      30% {
+        transform: rotate(4deg);
+      }
+      40% {
+        transform: rotate(-4deg);
+      }
+      50% {
+        transform: rotate(4deg);
+      }
+      60% {
+        transform: rotate(-4deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+    
+    .bg-button:hover {
+      background: -webkit-linear-gradient(#69044e, #0583a2);
+    }
+    
+    .resume-section {
+        text-align: center;
+
+        padding-top: 30vh;
+    }
+    
+    .animate-like {
+      animation-name: likeAnimation;
+      animation-fill-mode: forwards;
+      animation-duration: 0.85s;
+    }
+    
+    @keyframes likeAnimation {
+      0% {
+        transform: scale(1.5);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    
+/* navbar */
+
+
+  
+  .sidenav
+  {
+    background:none;
+    top: 50px;
+
+  }
+  
+    
+  .sidenav li a {
+    text-decoration: none;
+    color: yellowgreen;
+    font-family: 'Chivo Mono', monospace;
+    font-size: 21px;
+  }
+  
+  
+  .sidenav li {
+    
+    
+    list-style: none;
+    display: inline-block;
+    padding:20px 0 0 30px;
+  
+  }
+  
+  .sidenav li a:hover
+  {
+    color:white;
+    border-bottom: 2px solid black;
+  
+  }
+  
+  
+  
+  li .theme
+  {
+    margin: 0 30px 0 0;
+    display: flex-end;
+  }
+  
+  
+  
+  </style>
+</head>
+<body>
+
+    <div id="sidenav" class="sidenav container">
+
+
+        <ul>
+            <li> <a href="../#home"></i> Home</a></li>
+            <li> <a href="../#about"></i>About</a></li>
+          
+            <li><a href="../#projects"></i>Projects</a></li>
+            <li> <a href="../#contacts"></i>Contact</a> </li>
+          
+        </ul>
+
+    </div>
+  <div class="resume-section">
+    <button class="bg-button" onclick="openResume()">View Resume</button>
+  </div>
+  
+  <script>
+    // Function to open the PDF resume in a new tab
+    function openResume() {
+      window.open('cv.pdf', '_blank');
+    }
+  </script>
+</body>
+</html>
