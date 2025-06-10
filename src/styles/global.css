@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@200;400;600&display=swap');
+
+/* Base styles */
+body {
+  background: url('../imgs/fdsa2.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 20px 80px 20px 80px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+body.dark {
+  background: url('../imgs/asdf.jpg') 80% fixed;
+  color: rgb(213, 214, 227);
+}
+
+/* Section styles */
+section {
+  padding: 80px 0;
+  background: rgba(255, 255, 255, 0.95);
+  margin: 20px 0;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.dark section {
+  background: rgba(30, 32, 44, 0.95);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Header and Navigation */
+.sidenav {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px 30px;
+  border-radius: 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.dark .sidenav {
+  background: rgba(30, 32, 44, 0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sidenav li {
+  list-style: none;
+  display: inline-block;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.sidenav li a {
+  text-decoration: none;
+  color: #333;
+  font-family: 'Chivo Mono', monospace;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.dark .sidenav li a {
+  color: #fff;
+}
+
+.sidenav li a:hover {
+  color: #4a90e2;
+  border-bottom: none;
+}
+
+.sidenav li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background: #4a90e2;
+  transition: all 0.3s ease;
+}
+
+.sidenav li a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Typography */
+.name-title {
+  font-size: 75px;
+  background: linear-gradient(45deg, #aa0964, #4a90e2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-family: 'Rubik Vinyl', cursive;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dark .name-title {
+  background: linear-gradient(45deg, #4a90e2, #89c084);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #520c2c, #1f9615);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(45deg, #ae788f, #89c084);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Cards and Project sections */
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.dark .card {
+  background: rgba(30, 32, 44, 0.9);
+  color: #fff;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Skills section */
+.skills-theory .tabs button {
+  background: transparent;
+  border: 2px solid #4a90e2;
+  color: #4a90e2;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.dark .skills-theory .tabs button {
+  border-color: #89c084;
+  color: #89c084;
+}
+
+.skills-theory .tabs button:hover {
+  background: #4a90e2;
+  color: white;
+}
+
+.dark .skills-theory .tabs button:hover {
+  background: #89c084;
+}
+
+/* Typing effect */
+.typing-cursor {
+  display: inline-block;
+  margin-left: 5px;
+  width: 2px;
+  background-color: currentColor;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Wave animation */
+.wave {
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% { transform: rotate(0.0deg) }
+  10% { transform: rotate(14.0deg) }
+  20% { transform: rotate(-8.0deg) }
+  30% { transform: rotate(14.0deg) }
+  40% { transform: rotate(-4.0deg) }
+  50% { transform: rotate(10.0deg) }
+  60% { transform: rotate(0.0deg) }
+  100% { transform: rotate(0.0deg) }
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 20px 20px;
+  }
+
+  .sidenav {
+    position: fixed;
+    bottom: 20px;
+    top: auto;
+    left: 20px;
+    right: 20px;
+    border-radius: 25px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sidenav li {
+    padding: 5px 10px;
+  }
+
+  .sidenav li a {
+    font-size: 14px;
+  }
+
+  .name-title {
+    font-size: 48px;
+  }
+
+  section {
+    padding: 40px 20px;
+  }
+}
+
+/* Social Icons */
+.social-icon {
+  padding: 15px;
+  font-size: 20px;
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 5px;
+  background: linear-gradient(45deg, #4a90e2, #1f9615);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.dark .social-icon {
+  background: linear-gradient(45deg, #4a90e2, #89c084);
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0.9;
+}
+
+/* Typing effect styles */
+#typed-text {
+  font-family: 'Chivo Mono', monospace;
+  font-size: 1.5em;
+  color: #333;
+  margin: 20px 0;
+}
+
+#typed-text span {
+  border-right: 2px solid #333;
+  animation: cursor-blink 1s infinite;
+}
+
+.dark #typed-text {
+  color: #fff;
+}
+
+.dark #typed-text span {
+  border-right-color: #fff;
+}
+
+@keyframes cursor-blink {
+  0% { border-right-color: transparent }
+  50% { border-right-color: inherit }
+  100% { border-right-color: transparent }
+}
+
+@media screen and (max-width: 420px) {
+  body {
+    padding: 20px 50px 20px 50px;
+  }
+} 

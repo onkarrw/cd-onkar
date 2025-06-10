@@ -26,7 +26,7 @@
 }
 
 body {
-  background: url(imgs/fdsa2.jpg)no-repeat center center;
+  background: url('/public/imgs/fdsa2.jpg') no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -61,7 +61,7 @@ body {
 body.dark {
   /* background: rgb(30, 3, 41); */
 
-  background: url(imgs/asdf.jpg) 80%;
+  background: url('/public/imgs/asdf.jpg') 80%;
   color: rgb(213, 214, 227);
 
 }

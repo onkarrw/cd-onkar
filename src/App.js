@@ -1,73 +1,128 @@
-import React from 'react';
-import './Card.css';
+import { StrictMode } from 'react';
+import { ThemeProvider as MuiThemeProvider, createTheme, CssBaseline, responsiveFontSizes } from '@mui/material';
+import { ThemeProvider as CustomThemeProvider } from './context/ThemeContext';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Experience from './components/Experience';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import ThemeToggle from './components/ThemeToggle';
 
-const projects = [
-  {
-    title: 'Face detection',
-    image: 'imgs/faced.png',
-    description: 'A real-time face or smile detection using Haar cascade algorithm, uses blocks or line detection features.',
-    sourceCode: 'https://github.com/onkarrw'
+let theme = createTheme({
+  palette: {
+    primary: {
+      main: '#4a90e2',
+      light: '#7bb9ff',
+      dark: '#0066b0',
+    },
+    secondary: {
+      main: '#aa0964',
+      light: '#e14b93',
+      dark: '#750039',
+    },
+    background: {
+      default: '#ffffff',
+      paper: '#f5f5f5',
+    },
+    text: {
+      primary: '#2d2d2d',
+      secondary: '#666666',
+    },
   },
-  {
-    title: 'Data Fusion: Predictive Analytics & Recommendations',
-    image: 'imgs/predAnalysis.jpg',
-    description: 'Integrated car prize prediction, sales forecasting, and movie recommendation models for actionable insights.',
-    sourceCode: 'https://github.com/onkarrw'
+  typography: {
+    fontFamily: '"Chivo Mono", "Roboto", "Helvetica", "Arial", sans-serif',
+    h1: {
+      fontWeight: 700,
+      fontSize: '3.5rem',
+    },
+    h2: {
+      fontWeight: 700,
+      fontSize: '3rem',
+    },
+    h3: {
+      fontWeight: 600,
+      fontSize: '2.5rem',
+    },
+    h4: {
+      fontWeight: 600,
+      fontSize: '2rem',
+    },
+    h5: {
+      fontWeight: 500,
+      fontSize: '1.5rem',
+    },
+    h6: {
+      fontWeight: 500,
+      fontSize: '1.25rem',
+    },
+    body1: {
+      fontSize: '1rem',
+      lineHeight: 1.7,
+    },
+    body2: {
+      fontSize: '0.875rem',
+      lineHeight: 1.6,
+    },
   },
-
-
-  {
-    title: 'Lead tracker chrome extension',
-    image: 'imgs/leadt.png',
-    description: 'Leads Tracker can be used to save URL from any website.',
-    sourceCode: 'https://github.com/onkarrw'
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          borderRadius: 8,
+          padding: '8px 16px',
+          fontWeight: 500,
+        },
+      },
+      defaultProps: {
+        disableElevation: true,
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          borderRadius: 12,
+          transition: 'transform 0.2s ease-in-out',
+          '&:hover': {
+            transform: 'translateY(-4px)',
+          },
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          fontWeight: 500,
+        },
+      },
+    },
   },
-  {
-    title: 'Library Management System (Java)',
-    image: 'imgs/libman.png',
-    description: 'Used to insert, update, delete records into the Library database using jdbc connector. Where interface is made using Java Swing framework.',
-    sourceCode: 'https://github.com/onkarrw'
+  shape: {
+    borderRadius: 8,
   },
-  {
-    title: 'Personal portfolio website',
-    image: 'imgs/portfolio.gif',
-    description: 'My Portfolio website built using React framework.',
-    sourceCode: 'https://github.com/onkarrw'
-  },
-  {
-    title: 'Integrated Education Platform',
-    image: 'imgs/edu.gif',
-    description: 'Introducing Integrated Educational Platform: Seamlessly combining video conferencing, proctored exams, and easy sharing of educational resources. Engage in live lectures, take secure exams, and access a vast library of materials. Revolutionize online education with us!',
-    sourceCode: 'https://github.com/onkarrw'
-  }
-];
+  spacing: 8,
+});
 
-const Card = ({ title, image, description, sourceCode }) => (
-  <div className="card offset-lg-1 col-lg-3 col-md-5 col-sm-8" data-aos="flip-down">
-    <img className="cardimgs" src={image} alt="Avatar" style={{ width: '100%' }} />
-    <h4><b>{title}</b></h4>
-    <div className="container card-back">
-      <p>{description}</p>
-      <button><a href={sourceCode}>Source code</a></button>
-    </div>
-  </div>
-);
+// Make typography responsive
+theme = responsiveFontSizes(theme);
 
-const App = () => (
-
-
-
-  <section id="projects" className="container project-section project">
-    <div className="section-title">
-      <h2>Projects</h2>
-    </div>
-    <hr />
-    <div className="row">
-      {projects.map((project, index) => (
-        <Card key={index} {...project} />
-      ))}
-    </div>
-  </section>
-);
+function App() {
+  return (
+    <StrictMode>
+      <CustomThemeProvider>
+        <MuiThemeProvider theme={theme}>
+          <CssBaseline />
+          <ThemeToggle />
+          <Header />
+          <Hero />
+          <Experience />
+          <Projects />
+          <Skills />
+        </MuiThemeProvider>
+      </CustomThemeProvider>
+    </StrictMode>
+  );
+}
 
 export default App;
