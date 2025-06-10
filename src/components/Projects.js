@@ -12,27 +12,35 @@ const Projects = () => {
       title: 'Integrated Education Platform',
       description: 'A dynamic learning platform with exam tools, video conferencing, and study material sharing. Built with Firebase authentication and Firestore storage for seamless file access.',
       tech: ['Firebase', 'React', 'Node.js', 'WebRTC'],
-      date: 'Jun 2023'
+      date: 'Jun 2023',
+      codeUrl: 'https://github.com/onkarrw/integrated-education-platform'
     },
     {
       title: 'Learning Management System',
       description: 'Developed using Spring MVC and PostgreSQL for efficient course management and tracking. Implemented JWT authentication and authorization for secure, role-based access.',
       tech: ['Spring MVC', 'PostgreSQL', 'JWT', 'Design Patterns'],
-      date: 'Jan 2025'
+      date: 'Jan 2025',
+      codeUrl: 'https://github.com/onkarrw/learning-management-system'
     },
     {
       title: 'Dynamic Blog Site',
       description: 'A modern blog platform utilizing Firebase Storage for database management, authentication, and TinyMCE editor integration.',
       tech: ['React', 'Firebase', 'TinyMCE'],
-      date: 'Oct 2024'
+      date: 'Oct 2024',
+      codeUrl: 'https://github.com/onkarrw/dynamic-blog-site'
     },
     {
       title: 'Voice-Controlled Automation',
       description: 'Voice-controlled system using Google Assistant, IFTTT, and Adafruit for real-time device control and automation.',
       tech: ['Google Assistant', 'IFTTT', 'IoT', 'Adafruit'],
-      date: 'Jun 2022'
+      date: 'Jun 2022',
+      codeUrl: 'https://github.com/onkarrw/voice-controlled-automation'
     }
   ];
+
+  const handleViewCode = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <section>
@@ -140,6 +148,7 @@ const Projects = () => {
                       <Button 
                         size="small" 
                         startIcon={<GitHubIcon />}
+                        onClick={() => handleViewCode(project.codeUrl)}
                         sx={{ 
                           ml: 1, 
                           mb: 1,

@@ -7,8 +7,11 @@ import {
   Build as BuildIcon,
   Cloud as CloudIcon
 } from '@mui/icons-material';
+import { useTheme } from '../context/ThemeContext';
 
 const Skills = () => {
+  const { isDarkMode } = useTheme();
+
   const skillCategories = [
     {
       title: 'Libraries & Frameworks',
@@ -51,7 +54,7 @@ const Skills = () => {
   };
 
   return (
-    <Box sx={{ py: 8, bgcolor: '#f5f5f5' }}>
+    <section>
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -59,7 +62,16 @@ const Skills = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <Typography variant="h3" gutterBottom align="center" sx={{ mb: 6 }}>
+          <Typography 
+            variant="h3" 
+            gutterBottom 
+            align="center" 
+            sx={{ 
+              mb: 6,
+              color: isDarkMode ? '#fff' : 'inherit',
+              fontFamily: "'Chivo Mono', monospace"
+            }}
+          >
             Technical Skills
           </Typography>
 
@@ -74,13 +86,18 @@ const Skills = () => {
                 <Grid item xs={12} sm={6} md={3} key={index}>
                   <motion.div variants={itemVariants}>
                     <Paper
-                      elevation={3}
+                      elevation={isDarkMode ? 5 : 3}
                       sx={{
                         p: 3,
                         height: '100%',
-                        transition: 'transform 0.2s',
+                        transition: 'all 0.3s ease',
+                        bgcolor: isDarkMode ? 'rgba(30, 32, 44, 0.95)' : 'white',
+                        border: isDarkMode ? '1px solid rgba(255, 255, 255, 0.1)' : 'none',
                         '&:hover': {
-                          transform: 'translateY(-5px)'
+                          transform: 'translateY(-5px)',
+                          boxShadow: isDarkMode 
+                            ? '0 8px 16px rgba(0,0,0,0.4)' 
+                            : '0 8px 16px rgba(0,0,0,0.1)'
                         }
                       }}
                     >
@@ -94,8 +111,10 @@ const Skills = () => {
                       >
                         <Box
                           sx={{
-                            color: 'primary.main',
-                            mb: 2
+                            color: isDarkMode ? '#4a90e2' : 'primary.main',
+                            mb: 2,
+                            transform: 'scale(1.2)',
+                            transition: 'transform 0.3s ease'
                           }}
                         >
                           {category.icon}
@@ -105,6 +124,10 @@ const Skills = () => {
                           component="h3"
                           align="center"
                           gutterBottom
+                          sx={{
+                            color: isDarkMode ? '#fff' : 'inherit',
+                            fontWeight: 600
+                          }}
                         >
                           {category.title}
                         </Typography>
@@ -115,12 +138,24 @@ const Skills = () => {
                             key={i}
                             variant="body2"
                             sx={{
-                              bgcolor: 'rgba(25, 118, 210, 0.1)',
-                              color: 'primary.main',
+                              bgcolor: isDarkMode 
+                                ? 'rgba(74, 144, 226, 0.1)' 
+                                : 'rgba(25, 118, 210, 0.1)',
+                              color: isDarkMode ? '#4a90e2' : 'primary.main',
                               px: 1.5,
                               py: 0.5,
                               borderRadius: 1,
-                              fontSize: '0.875rem'
+                              fontSize: '0.875rem',
+                              border: isDarkMode 
+                                ? '1px solid rgba(74, 144, 226, 0.3)' 
+                                : 'none',
+                              transition: 'all 0.3s ease',
+                              '&:hover': {
+                                transform: 'translateY(-2px)',
+                                bgcolor: isDarkMode 
+                                  ? 'rgba(74, 144, 226, 0.2)' 
+                                  : 'rgba(25, 118, 210, 0.2)'
+                              }
                             }}
                           >
                             {skill}
@@ -135,7 +170,7 @@ const Skills = () => {
           </motion.div>
         </motion.div>
       </Container>
-    </Box>
+    </section>
   );
 };
 

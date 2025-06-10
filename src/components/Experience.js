@@ -3,8 +3,11 @@ import { Container, Typography, Box, Paper } from '@mui/material';
 import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@mui/lab';
 import { motion } from 'framer-motion';
 import { Work as WorkIcon } from '@mui/icons-material';
+import { useTheme } from '../context/ThemeContext';
 
 const Experience = () => {
+  const { isDarkMode } = useTheme();
+
   const experiences = [
     {
       title: 'Software Engineer Intern',
@@ -31,7 +34,7 @@ const Experience = () => {
   ];
 
   return (
-    <Box sx={{ py: 8, bgcolor: '#f5f5f5' }}>
+    <section>
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,7 +42,16 @@ const Experience = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <Typography variant="h3" gutterBottom align="center" sx={{ mb: 6 }}>
+          <Typography 
+            variant="h3" 
+            gutterBottom 
+            align="center" 
+            sx={{ 
+              mb: 6,
+              color: isDarkMode ? '#fff' : 'inherit',
+              fontFamily: "'Chivo Mono', monospace"
+            }}
+          >
             Experience
           </Typography>
 
@@ -47,10 +59,15 @@ const Experience = () => {
             {experiences.map((exp, index) => (
               <TimelineItem key={index}>
                 <TimelineSeparator>
-                  <TimelineDot color="primary">
+                  <TimelineDot sx={{ 
+                    bgcolor: isDarkMode ? '#4a90e2' : 'primary.main',
+                    boxShadow: isDarkMode ? '0 0 10px #4a90e2' : 'none'
+                  }}>
                     <WorkIcon />
                   </TimelineDot>
-                  <TimelineConnector />
+                  <TimelineConnector sx={{ 
+                    bgcolor: isDarkMode ? 'rgba(74, 144, 226, 0.3)' : 'primary.main'
+                  }} />
                 </TimelineSeparator>
                 <TimelineContent>
                   <motion.div
@@ -59,19 +76,61 @@ const Experience = () => {
                     transition={{ duration: 0.5, delay: index * 0.2 }}
                     viewport={{ once: true }}
                   >
-                    <Paper elevation={3} sx={{ p: 3, bgcolor: 'white' }}>
-                      <Typography variant="h6" component="h2" color="primary">
+                    <Paper 
+                      elevation={isDarkMode ? 5 : 3} 
+                      sx={{ 
+                        p: 3,
+                        bgcolor: isDarkMode ? 'rgba(30, 32, 44, 0.95)' : 'white',
+                        border: isDarkMode ? '1px solid rgba(255, 255, 255, 0.1)' : 'none',
+                        transition: 'all 0.3s ease',
+                        '&:hover': {
+                          transform: 'translateY(-5px)',
+                          boxShadow: isDarkMode ? '0 8px 16px rgba(0,0,0,0.4)' : '0 8px 16px rgba(0,0,0,0.1)'
+                        }
+                      }}
+                    >
+                      <Typography 
+                        variant="h6" 
+                        component="h2" 
+                        sx={{ 
+                          color: isDarkMode ? '#4a90e2' : 'primary.main',
+                          fontWeight: 600
+                        }}
+                      >
                         {exp.title}
                       </Typography>
-                      <Typography variant="subtitle1" color="text.secondary" gutterBottom>
+                      <Typography 
+                        variant="subtitle1" 
+                        sx={{ 
+                          color: isDarkMode ? 'rgba(255,255,255,0.7)' : 'text.secondary',
+                          mb: 1
+                        }}
+                      >
                         {exp.company}
                       </Typography>
-                      <Typography variant="body2" color="text.secondary" gutterBottom>
+                      <Typography 
+                        variant="body2" 
+                        sx={{ 
+                          color: isDarkMode ? 'rgba(255,255,255,0.5)' : 'text.secondary',
+                          mb: 2
+                        }}
+                      >
                         {exp.period}
                       </Typography>
                       <Box component="ul" sx={{ mt: 2, pl: 2 }}>
                         {exp.description.map((item, i) => (
-                          <Typography component="li" key={i} variant="body2" sx={{ mb: 1 }}>
+                          <Typography 
+                            component="li" 
+                            key={i} 
+                            variant="body2" 
+                            sx={{ 
+                              mb: 1,
+                              color: isDarkMode ? 'rgba(255,255,255,0.9)' : 'inherit',
+                              '&::marker': {
+                                color: isDarkMode ? '#4a90e2' : 'primary.main'
+                              }
+                            }}
+                          >
                             {item}
                           </Typography>
                         ))}
@@ -84,7 +143,7 @@ const Experience = () => {
           </Timeline>
         </motion.div>
       </Container>
-    </Box>
+    </section>
   );
 };
 

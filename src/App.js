@@ -1,12 +1,13 @@
 import { StrictMode } from 'react';
 import { ThemeProvider as MuiThemeProvider, createTheme, CssBaseline, responsiveFontSizes } from '@mui/material';
 import { ThemeProvider as CustomThemeProvider } from './context/ThemeContext';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
-import ThemeToggle from './components/ThemeToggle';
+import Contact from './components/Contact';
 
 let theme = createTheme({
   palette: {
@@ -21,13 +22,14 @@ let theme = createTheme({
       dark: '#750039',
     },
     background: {
-      default: '#ffffff',
-      paper: '#f5f5f5',
+      default: '#f8f9fa',
+      paper: '#ffffff',
     },
     text: {
       primary: '#2d2d2d',
       secondary: '#666666',
     },
+    mode: 'light',
   },
   typography: {
     fontFamily: '"Chivo Mono", "Roboto", "Helvetica", "Arial", sans-serif',
@@ -65,6 +67,22 @@ let theme = createTheme({
     },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          backgroundColor: '#f8f9fa',
+          transition: 'background-color 0.3s ease'
+        }
+      }
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#ffffff',
+          transition: 'background-color 0.3s ease, box-shadow 0.3s ease'
+        }
+      }
+    },
     MuiButton: {
       styleOverrides: {
         root: {
@@ -82,7 +100,7 @@ let theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 12,
-          transition: 'transform 0.2s ease-in-out',
+          transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
           '&:hover': {
             transform: 'translateY(-4px)',
           },
@@ -113,12 +131,16 @@ function App() {
       <CustomThemeProvider>
         <MuiThemeProvider theme={theme}>
           <CssBaseline />
-          <ThemeToggle />
-          <Header />
-          <Hero />
-          <Experience />
-          <Projects />
-          <Skills />
+          <Router>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Hero />} />
+              <Route path="/experience" element={<Experience />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/skills" element={<Skills />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </Router>
         </MuiThemeProvider>
       </CustomThemeProvider>
     </StrictMode>
