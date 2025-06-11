@@ -18,69 +18,89 @@ const ContactItem = ({ icon, primary, secondary, href }) => {
       transition={{ duration: 0.5 }}
     >
       <Paper
-        elevation={0}
+        elevation={isDarkMode ? 5 : 3}
         sx={{
-          p: 3,
+          p: 4,
           height: '100%',
-          background: isDarkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)',
-          backdropFilter: 'blur(10px)',
-          borderRadius: 2,
-          transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+          transition: 'all 0.3s ease',
+          bgcolor: isDarkMode ? 'rgba(30, 32, 44, 0.95)' : 'white',
+          border: isDarkMode ? '1px solid rgba(255, 255, 255, 0.1)' : 'none',
           '&:hover': {
-            transform: 'translateY(-5px)',
-            boxShadow: isDarkMode ? '0 8px 30px rgba(0, 0, 0, 0.3)' : '0 8px 30px rgba(0, 0, 0, 0.1)',
+            transform: 'translateY(-8px)',
+            boxShadow: isDarkMode 
+              ? '0 12px 24px rgba(0,0,0,0.4)' 
+              : '0 12px 24px rgba(0,0,0,0.1)'
           }
         }}
       >
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 2
+          }}
+        >
           <Box
             sx={{
-              color: '#4a90e2',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
+              color: isDarkMode ? '#4a90e2' : '#aa0964',
+              transform: 'scale(1.4)',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                transform: 'scale(1.5) rotate(5deg)'
+              }
             }}
           >
             {icon}
           </Box>
-          <Box sx={{ textAlign: 'center' }}>
-            <Typography 
-              variant="body2" 
-              sx={{ 
-                color: isDarkMode ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.6)',
-                mb: 0.5 
+          <Typography
+            variant="h6"
+            sx={{
+              color: isDarkMode ? '#fff' : '#2d2d2d',
+              fontWeight: 600,
+              fontSize: { xs: '1.2rem', sm: '1.3rem', md: '1.4rem' },
+              textAlign: 'center'
+            }}
+          >
+            {primary}
+          </Typography>
+          {href ? (
+            <Link
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                color: isDarkMode ? '#4a90e2' : '#aa0964',
+                textDecoration: 'none',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  color: isDarkMode ? '#89c084' : '#4a90e2',
+                  textDecoration: 'underline'
+                }
               }}
             >
-              {primary}
-            </Typography>
-            {href ? (
-              <Link
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{
-                  color: isDarkMode ? '#fff' : '#000',
-                  textDecoration: 'none',
-                  '&:hover': {
-                    color: '#4a90e2',
-                  }
-                }}
-              >
-                <Typography variant="body1">
-                  {secondary}
-                </Typography>
-              </Link>
-            ) : (
-              <Typography 
+              <Typography
                 variant="body1"
                 sx={{
-                  color: isDarkMode ? '#fff' : '#000'
+                  textAlign: 'center',
+                  fontSize: '1rem'
                 }}
               >
                 {secondary}
               </Typography>
-            )}
-          </Box>
+            </Link>
+          ) : (
+            <Typography
+              variant="body1"
+              sx={{
+                color: isDarkMode ? 'rgba(255, 255, 255, 0.8)' : 'text.secondary',
+                textAlign: 'center',
+                fontSize: '1rem'
+              }}
+            >
+              {secondary}
+            </Typography>
+          )}
         </Box>
       </Paper>
     </motion.div>
@@ -130,39 +150,56 @@ const Contact = () => {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        background: isDarkMode ? 'transparent' : 'rgba(74, 144, 226, 0.02)'
+        background: isDarkMode 
+          ? 'transparent' 
+          : 'linear-gradient(135deg, rgba(255, 230, 255, 0.95), rgba(230, 255, 255, 0.95), rgba(255, 230, 230, 0.95))',
+        backdropFilter: 'blur(10px)',
+        borderRadius: 2,
+        boxShadow: isDarkMode ? 'none' : '0 5px 15px rgba(0, 0, 0, 0.1)'
       }}
     >
-      <Container maxWidth="lg">
+      <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
         >
           <Typography 
-            variant="h2" 
-            gutterBottom
-            sx={{
+            variant="h3" 
+            gutterBottom 
+            align="center" 
+            sx={{ 
               mb: 6,
-              textAlign: 'center',
-              background: 'linear-gradient(45deg, #4a90e2, #7bb9ff)',
-              backgroundClip: 'text',
+              color: isDarkMode ? '#fff' : '#2d2d2d',
+              fontFamily: "'Chivo Mono', monospace",
+              fontSize: { xs: '2rem', sm: '2.2rem', md: '2.5rem' },
+              fontWeight: 600,
+              background: isDarkMode 
+                ? 'linear-gradient(45deg, #4a90e2, #89c084)' 
+                : 'linear-gradient(45deg, #aa0964, #4a90e2)',
               WebkitBackgroundClip: 'text',
-              color: 'transparent',
-              textShadow: isDarkMode ? '0 0 30px rgba(74, 144, 226, 0.3)' : 'none'
+              WebkitTextFillColor: 'transparent'
             }}
           >
             Get in Touch
           </Typography>
-        </motion.div>
 
-        <Grid container spacing={3}>
-          {contactInfo.map((info, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <ContactItem {...info} />
-            </Grid>
-          ))}
-        </Grid>
+          <Grid container spacing={4}>
+            {contactInfo.map((info, index) => (
+              <Grid item xs={12} sm={6} md={4} key={index}>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <ContactItem {...info} />
+                </motion.div>
+              </Grid>
+            ))}
+          </Grid>
+        </motion.div>
       </Container>
     </Box>
   );
