@@ -1,46 +1,13 @@
 import React from 'react';
 import { Container, Typography, Grid, Card, CardContent, CardActions, Button, Box } from '@mui/material';
-import { GitHub as GitHubIcon } from '@mui/icons-material';
+import { GitHub as GitHubIcon, Language as LanguageIcon } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
+import projectsData from '../data/projects.json';
 
 const Projects = () => {
   const { isDarkMode } = useTheme();
-
-  const projects = [
-    {
-      title: 'Integrated Education Platform',
-      description: 'A dynamic learning platform with exam tools, video conferencing, and study material sharing. Built with Firebase authentication and Firestore storage for seamless file access.',
-      tech: ['Firebase', 'React', 'Node.js', 'WebRTC'],
-      date: 'Jun 2023',
-      codeUrl: 'https://github.com/onkarrw/integrated-education-platform'
-    },
-    {
-      title: 'Learning Management System',
-      description: 'Developed using Spring MVC and PostgreSQL for efficient course management and tracking. Implemented JWT authentication and authorization for secure, role-based access.',
-      tech: ['Spring MVC', 'PostgreSQL', 'JWT', 'Design Patterns'],
-      date: 'Jan 2025',
-      codeUrl: 'https://github.com/onkarrw/learning-management-system'
-    },
-    {
-      title: 'Dynamic Blog Site',
-      description: 'A modern blog platform utilizing Firebase Storage for database management, authentication, and TinyMCE editor integration.',
-      tech: ['React', 'Firebase', 'TinyMCE'],
-      date: 'Oct 2024',
-      codeUrl: 'https://github.com/onkarrw/dynamic-blog-site'
-    },
-    {
-      title: 'Voice-Controlled Automation',
-      description: 'Voice-controlled system using Google Assistant, IFTTT, and Adafruit for real-time device control and automation.',
-      tech: ['Google Assistant', 'IFTTT', 'IoT', 'Adafruit'],
-      date: 'Jun 2022',
-      codeUrl: 'https://github.com/onkarrw/voice-controlled-automation'
-    }
-  ];
-
-  const handleViewCode = (url) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
+  const { projects } = projectsData;
 
   return (
     <section>
@@ -73,7 +40,7 @@ const Projects = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card 
+                  <Card
                     elevation={isDarkMode ? 5 : 3}
                     sx={{
                       height: '100%',
@@ -144,24 +111,45 @@ const Projects = () => {
                         ))}
                       </Box>
                     </CardContent>
-                    <CardActions>
-                      <Button 
-                        size="small" 
-                        startIcon={<GitHubIcon />}
-                        onClick={() => handleViewCode(project.codeUrl)}
-                        sx={{ 
-                          ml: 1, 
-                          mb: 1,
-                          color: isDarkMode ? '#4a90e2' : 'primary.main',
-                          '&:hover': {
-                            bgcolor: isDarkMode 
-                              ? 'rgba(74, 144, 226, 0.1)' 
-                              : 'rgba(25, 118, 210, 0.1)'
-                          }
-                        }}
-                      >
-                        View Code
-                      </Button>
+                    <CardActions sx={{ display: 'flex', gap: 1, px: 2 }}>
+                      {project.github && (
+                        <Button 
+                          size="small" 
+                          startIcon={<GitHubIcon />}
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          sx={{ 
+                            color: isDarkMode ? '#4a90e2' : 'primary.main',
+                            '&:hover': {
+                              bgcolor: isDarkMode 
+                                ? 'rgba(74, 144, 226, 0.1)' 
+                                : 'rgba(25, 118, 210, 0.1)'
+                            }
+                          }}
+                        >
+                          Code
+                        </Button>
+                      )}
+                      {project.url && project.url.length > 0 && (
+                        <Button 
+                          size="small" 
+                          startIcon={<LanguageIcon />}
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          sx={{ 
+                            color: isDarkMode ? '#4a90e2' : 'primary.main',
+                            '&:hover': {
+                              bgcolor: isDarkMode 
+                                ? 'rgba(74, 144, 226, 0.1)' 
+                                : 'rgba(25, 118, 210, 0.1)'
+                            }
+                          }}
+                        >
+                          Go to site
+                        </Button>
+                      )}
                     </CardActions>
                   </Card>
                 </motion.div>

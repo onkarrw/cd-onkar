@@ -32,7 +32,7 @@ const ContactItem = ({ icon, primary, secondary, href }) => {
           }
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
           <Box
             sx={{
               color: '#4a90e2',
@@ -43,8 +43,14 @@ const ContactItem = ({ icon, primary, secondary, href }) => {
           >
             {icon}
           </Box>
-          <Box>
-            <Typography variant="body2" color="textSecondary" gutterBottom>
+          <Box sx={{ textAlign: 'center' }}>
+            <Typography 
+              variant="body2" 
+              sx={{ 
+                color: isDarkMode ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.6)',
+                mb: 0.5 
+              }}
+            >
               {primary}
             </Typography>
             {href ? (
@@ -65,7 +71,12 @@ const ContactItem = ({ icon, primary, secondary, href }) => {
                 </Typography>
               </Link>
             ) : (
-              <Typography variant="body1">
+              <Typography 
+                variant="body1"
+                sx={{
+                  color: isDarkMode ? '#fff' : '#000'
+                }}
+              >
                 {secondary}
               </Typography>
             )}

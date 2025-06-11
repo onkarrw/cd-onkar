@@ -1,0 +1,36 @@
+{
+  "projects": [
+    {
+      "title": "Integrated Education Platform",
+      "description": "A dynamic learning platform with exam tools, video conferencing, and study material sharing. Built with Firebase authentication and Firestore storage for seamless file access.",
+      "tech": ["Firebase", "React", "Node.js", "WebRTC"],
+      "date": "Jun 2023",
+      "github": "https://github.com/onkarrw/education-platform",
+      "url": "https://edu-platform.vercel.app"
+    },
+    {
+      "title": "Learning Management System",
+      "description": "Developed using Spring MVC and PostgreSQL for efficient course management and tracking. Implemented JWT authentication and authorization for secure, role-based access.",
+      "tech": ["Spring MVC", "PostgreSQL", "JWT", "Design Patterns"],
+      "date": "Jan 2025",
+      "github": "https://github.com/onkarrw/lms",
+      "url": ""
+    },
+    {
+      "title": "Dynamic Blog Site",
+      "description": "A modern blog platform utilizing Firebase Storage for database management, authentication, and TinyMCE editor integration.",
+      "tech": ["React", "Firebase", "TinyMCE"],
+      "date": "Oct 2024",
+      "github": "https://github.com/onkarrw/blog-site",
+      "url": "https://dynamic-blog.vercel.app"
+    },
+    {
+      "title": "Voice-Controlled Automation",
+      "description": "Voice-controlled system using Google Assistant, IFTTT, and Adafruit for real-time device control and automation.",
+      "tech": ["Google Assistant", "IFTTT", "IoT", "Adafruit"],
+      "date": "Jun 2022",
+      "github": "https://github.com/onkarrw/voice-automation",
+      "url": ""
+    }
+  ]
+} 
