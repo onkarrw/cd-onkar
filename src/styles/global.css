@@ -4,7 +4,7 @@
 /* Base styles */
 body {
   background-color: #ffffff; /* Fallback for light mode */
-  background: url('../imgs/fdsa2.jpg') no-repeat center center fixed;
+  background: url('../imgs/bright.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -16,7 +16,7 @@ body {
 
 body.dark {
   background-color: #1E202C; /* Fallback for dark mode */
-  background: url('../imgs/asdf.jpg') 80% fixed;
+  background: url('../imgs/dark.jpg') 80% fixed;
   color: rgb(213, 214, 227);
 }
 
