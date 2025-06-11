@@ -67,7 +67,8 @@ const Hero = () => {
         backdropFilter: 'blur(10px)',
         borderRadius: 2,
         boxShadow: isDarkMode ? 'none' : '0 5px 15px rgba(0, 0, 0, 0.1)',
-        py: { xs: 8, md: 12 }
+        pt: { xs: 2, md: 4 },
+        pb: { xs: 8, md: 12 }
       }}
     >
       <Container 

@@ -14,9 +14,10 @@ import {
   Box,
   Container
 } from '@mui/material';
-import { Menu as MenuIcon } from '@mui/icons-material';
+import MenuIcon from '@mui/icons-material/Menu';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
+import DescriptionIcon from '@mui/icons-material/Description';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme as useCustomTheme } from '../context/ThemeContext';
@@ -27,6 +28,10 @@ const Header = () => {
   const { isDarkMode, toggleTheme } = useCustomTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const location = useLocation();
+
+  const handleResumeClick = () => {
+    window.open(process.env.PUBLIC_URL + '/cv.pdf', '_blank');
+  };
 
   const menuItems = [
     { label: 'Home', path: '/' },
@@ -43,6 +48,28 @@ const Header = () => {
   const isActive = (path) => {
     return location.pathname === path;
   };
+
+  const ResumeButton = () => (
+    <Button
+      onClick={handleResumeClick}
+      startIcon={<DescriptionIcon />}
+      sx={{
+        ml: { xs: 0, md: 2 },
+        color: isDarkMode ? '#4a90e2' : '#aa0964',
+        border: `1px solid ${isDarkMode ? '#4a90e2' : '#aa0964'}`,
+        '&:hover': {
+          backgroundColor: isDarkMode ? 'rgba(74, 144, 226, 0.1)' : 'rgba(170, 9, 100, 0.1)',
+          transform: 'translateY(-2px)',
+          boxShadow: isDarkMode 
+            ? '0 4px 8px rgba(74, 144, 226, 0.2)' 
+            : '0 4px 8px rgba(170, 9, 100, 0.2)'
+        },
+        transition: 'all 0.3s ease'
+      }}
+    >
+      Resume
+    </Button>
+  );
 
   return (
     <AppBar 
@@ -90,6 +117,7 @@ const Header = () => {
           {isMobile ? (
             <>
               <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+                <ResumeButton />
                 <IconButton
                   onClick={toggleTheme}
                   sx={{
@@ -162,6 +190,7 @@ const Header = () => {
                   </Button>
                 </motion.div>
               ))}
+              <ResumeButton />
               <IconButton
                 onClick={toggleTheme}
                 sx={{
