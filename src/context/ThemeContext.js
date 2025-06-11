@@ -5,13 +5,9 @@ const ThemeContext = createContext(null);
 
 export const ThemeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Check if user has a saved preference
+    // Set dark mode as default theme
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      return savedTheme === 'dark';
-    }
-    // Check if user's system prefers dark mode
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return savedTheme ? savedTheme === 'dark' : true;
   });
 
   useEffect(() => {
