@@ -1,11 +1,18 @@
 {
   "projects": [
     {
+      "title": "Blitz Blaze Blog Website",
+      "description": "A modern, fast blog and project website for sharing tech articles, personal work, and insights. Features responsive design and dynamic content management.",
+      "tech": ["React.js", "Vercel", "Material UI", "Node.js"],
+      "date": "Oct 2025",
+      "github": "https://github.com/onkarrw/BlitzBlaze",
+      "url": "https://blitz-blaze.vercel.app/"
+    },
+    {
       "title": "Integrated Education Platform",
       "description": "A dynamic learning platform with exam tools, video conferencing, and study material sharing. Built with Firebase authentication and Firestore storage for seamless file access.",
       "tech": ["Firebase", "React", "Node.js", "WebRTC"],
       "date": "Jun 2023",
-      "github": "https://github.com/onkarrw/education-platform",
       "url": "https://edu-platform.vercel.app"
     },
     {

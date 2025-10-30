@@ -10,15 +10,23 @@ const Experience = () => {
 
   const experiences = [
     {
+      title: 'Software Engineer',
+      company: 'MiniOrange Security Software Pvt. Ltd.',
+      period: 'June 2025 – Present',
+      description: [
+        'Modernizing legacy Java application by upgrading to Java 17 and optimizing dependencies and frameworks (Struts, JWT, HTTPClient)',
+        'Migrating security from Shiro to Spring Security and implementing connection pooling for improved performance',
+        'Deepened understanding of authentication protocols, and microservices such as RabbitMQ and Redis'
+      ]
+    },
+    {
       title: 'Software Engineer Intern',
       company: 'MiniOrange Security Software Pvt. Ltd.',
-      period: 'Jan 2025 – Present',
+      period: 'Jan 2025 – June 2025',
       description: [
-        'Modernizing legacy Java application by upgrading to Java 17',
-        'Migrating security from Shiro to Spring Security',
-        'Optimizing dependencies and frameworks (Struts, JWT, HTTPClient)',
-        'Developing JUnit test cases using Mockito and Assertions',
-        'Implementing Adaptive Authorization with IP, location, and device-based validation'
+        'Learned about Kerberos authentication, Single Sign-On (SSO) flows SAML, OAuth, JWT, Nginx',
+        'Worked extensively on Spring Security, Shiro Security, and cache management',
+        'Developed JUnit test cases using Mockito and Assertions'
       ]
     },
     {
@@ -133,7 +141,8 @@ const Experience = () => {
                           color: isDarkMode ? '#4a90e2' : '#aa0964',
                           fontWeight: 600,
                           fontSize: { xs: '1.3rem', sm: '1.4rem', md: '1.5rem' },
-                          mb: 2
+                          mb: 0.5,
+                          textAlign: 'center',
                         }}
                       >
                         {exp.title}
@@ -144,7 +153,8 @@ const Experience = () => {
                           color: isDarkMode ? 'rgba(255,255,255,0.8)' : '#2d2d2d',
                           mb: 1,
                           fontWeight: 500,
-                          fontSize: { xs: '1.1rem', sm: '1.2rem', md: '1.3rem' }
+                          fontSize: { xs: '1.1rem', sm: '1.2rem', md: '1.3rem' },
+                          textAlign: 'center',
                         }}
                       >
                         {exp.company}
@@ -155,7 +165,9 @@ const Experience = () => {
                           color: isDarkMode ? 'rgba(255,255,255,0.6)' : 'text.secondary',
                           mb: 3,
                           fontSize: '0.9rem',
-                          fontStyle: 'italic'
+                          fontStyle: 'italic',
+                          textAlign: 'right',
+                          display: 'block',
                         }}
                       >
                         {exp.period}
@@ -183,6 +195,7 @@ const Experience = () => {
                               color: isDarkMode ? 'rgba(255,255,255,0.9)' : 'text.primary',
                               fontSize: '1rem',
                               lineHeight: 1.7,
+                              textAlign: 'left',
                               '&::marker': {
                                 color: isDarkMode ? '#4a90e2' : '#aa0964'
                               }

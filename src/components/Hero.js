@@ -153,8 +153,7 @@ const Hero = () => {
                 maxWidth: '800px'
               }}
             >
-              Passionate about modernizing legacy applications and building efficient, secure software solutions.
-              Experienced in full-stack development with a focus on Java Spring Framework and React.js.
+              I modernize enterprise applications, streamline performance, and strengthen security. With hands-on experience in full-stack development, I've upgraded monolithic Java apps, refactored security frameworks, and optimized codebases. I build scalable solutions using Java Spring, React.js, and cloud-native tools.
             </Typography>
 
             <Box 
