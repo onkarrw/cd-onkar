@@ -26,12 +26,12 @@ const Skills = () => {
     {
       title: 'Tools',
       icon: <BuildIcon fontSize="large" />,
-      skills: ['Git', 'GitHub', 'Bitbucket', 'Docker', 'Redis', 'Postman']
+      skills: ['Git', 'RabbitMq', 'Docker', 'Redis', 'Postman']
     },
     {
       title: 'DevOps & Cloud',
       icon: <CloudIcon fontSize="large" />,
-      skills: ['Docker', 'Kubernetes', 'AWS', 'CI/CD Pipelines', 'GitHub Actions']
+      skills: ['Docker', 'Kubernetes', 'AWS', 'CI/CD Pipelines']
     }
   ];
 
@@ -93,7 +93,7 @@ const Skills = () => {
               WebkitTextFillColor: 'transparent'
             }}
           >
-            Technical Skills
+          What I’ve Worked On
           </Typography>
 
           <motion.div

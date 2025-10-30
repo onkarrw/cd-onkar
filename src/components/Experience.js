@@ -10,7 +10,7 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: 'Software Engineer',
+      title: 'Software Developement Engineer I',
       company: 'MiniOrange Security Software Pvt. Ltd.',
       period: 'June 2025 – Present',
       description: [
